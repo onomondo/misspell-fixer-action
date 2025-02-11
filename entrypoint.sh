@@ -11,7 +11,9 @@ status="$?"
 
 # Sets the output variable for GitHub Action API:
 # See: https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable
-echo "output=$output" >> "$GITHUB_OUTPUT"
+echo "output<<EOF" >> "${GITHUB_OUTPUT}"
+echo "${output}" >> "${GITHUB_OUTPUT}"
+echo "EOF" >> "${GITHUB_OUTPUT}"
 echo '================================='
 echo
 
